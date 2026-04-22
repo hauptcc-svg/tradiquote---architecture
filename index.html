@@ -4199,6 +4199,155 @@ requested section. No preamble, no explanation.</div>
     </div>
   </div>
 
+  <!-- Section 6: Feature Pipeline -->
+  <div class="detail-section">
+    <div class="detail-section-header">Feature Pipeline — 18 Features Mapped to Pricing Tiers</div>
+    <div class="detail-section-body">
+
+      <!-- Legend -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;font-size:11px;font-weight:600">
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#22c55e;display:inline-block"></span> Live in production</span>
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:var(--col-fe);display:inline-block"></span> R599 Growing (planned)</span>
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:var(--col-db);display:inline-block"></span> R999 Team (future)</span>
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#f97316;display:inline-block"></span> Game-changer (post-scale)</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:6px">
+
+        <!-- Live / All tiers -->
+        <div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);padding:4px 0 2px">✅ Live — All Plans</div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🤖 AI Proposal Generation</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">claude-haiku-4-5 writes 4-section professional proposal in &lt;10s. Formal SA English, specific to job details. 5/hour rate limit.</div>
+          </div>
+          <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">✍️ Digital Signatures</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Client signs on their phone — canvas draw or typed. ECTA-compliant. Timestamp + IP captured. Locked on signing.</div>
+          </div>
+          <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📄 EFT Invoicing</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Deposit invoice auto-created on signing. Client gets bank details via WhatsApp. Tradie marks paid manually. PDF download.</div>
+          </div>
+          <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📱 WhatsApp Delivery</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">One-tap send via wa.me URL. Proposal link + personal message. Client opens on their phone in seconds. Zero API cost.</div>
+          </div>
+          <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🔔 Push Notifications</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Tradie notified when client opens or signs proposal, views invoice. VAPID web push via service worker. Works offline.</div>
+          </div>
+          <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📷 Photo Upload</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Up to 10 site photos per proposal. Canvas-compressed before upload. Stored in Supabase Storage. Shown on proposal PDF.</div>
+          </div>
+        </div>
+
+        <!-- R599 tier -->
+        <div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--col-fe);padding:12px 0 2px">📈 R599 Growing Business — Planned</div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📍 GPS Site Check-In</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Supervisor arrives → photos job site → GPS + timestamp stamped automatically. Clock in/out. Progress notes. Tradie notified. Supervisor-only role, no access to quotes.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📸 Job Diary</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Before/during/after photo log per job. One-tap WhatsApp progress report to client with photos. Proof of work in disputes. Builds client trust before final invoice.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🔔 Follow-up Sequences</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Proposal cold after 3 days → tradie gets WhatsApp follow-up reminder. Post-job → review request. Post-job 30 days → referral nudge. Zero effort from tradie.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">💰 Cashflow Dashboard</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Pending proposals value · Outstanding invoices + days overdue · Received this month · Retention not yet claimed. All from existing data — new view only.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📊 Job Costing</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Enter actual materials + labour cost after job closes. System shows quoted vs actual profit per job. Over time: "Your roofing margin averages 31%." Know which jobs make money.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🔁 Maintenance Scheduling</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Set a maintenance interval per job type. System fires a reminder when due. One-click pre-fills a new quote from the original. Repeat revenue without the tradie having to remember anything.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">✅ Snag / Punch List</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">At completion: list outstanding items with photos + status. Client signs off digitally. Sign-off releases final invoice. Kills "I'm not paying until X is fixed" disputes.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">⏱ Retention Tracker</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Tracks 5–10% retention holdback per contract. Notifies tradie when the period ends → time to claim. Real money tradies routinely forget to collect.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🧾 Expense Tracker</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Log petrol, hardware runs, parking — photo of receipt, amount, category, tagged to a job. Actual expenses feed into job costing. Know true profit, not estimated profit.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">💳 Progress Billing</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Set payment milestones on the proposal: 30% deposit → 40% at frame stage → 30% on completion. Each milestone auto-generates and sends an invoice. Solves cashflow on long jobs.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">⭐ Review Manager</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Post-completion: one-tap Google review request via WhatsApp. TradiQuote tracks rating. Rating badge appears on proposals: "★4.8 · 34 jobs." Social proof before signing.</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📋 Certificate of Completion</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">After sign-off: auto-generate formal PDF with job scope, dates, before/after photos, signatures. Used for insurance, body corporates, municipality compliance. Elevates credibility.</div>
+          </div>
+        </div>
+
+        <!-- R999 tier -->
+        <div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--col-db);padding:12px 0 2px">👷 R999 Team — Future</div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div style="background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🔧 Subcontractor Management</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Assign proposal sections to trusted subs via WhatsApp. Sub clocks in/out. Tradie sees hours + cost vs quoted. Eliminates "I thought you were handling that" confusion.</div>
+          </div>
+          <div style="background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📅 Job Scheduling</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Weekly calendar: active jobs, quoting stage, invoiced. Drag to reschedule. Conflict detection. Optional Google Calendar sync. Replaces the WhatsApp group and mental calendar.</div>
+          </div>
+          <div style="background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🏗 Client Portal</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Magic link for clients to view all their jobs, photo gallery, invoice status, upcoming work. Reduces "where's my invoice?" calls. Makes tradie look like a professional firm.</div>
+          </div>
+        </div>
+
+        <!-- Game-changers -->
+        <div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#f97316;padding:12px 0 2px">🚀 Game-Changers — Post-Scale</div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🎙 Voice-to-Quote</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">One tap → tradie speaks the scope on-site → Claude converts speech to line items in the quote form. Dirty hands, no typing. Cuts quoting from 4 minutes to 90 seconds.</div>
+          </div>
+          <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📈 Market Rate Insights</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Anonymised, aggregated: "Roofers in Gauteng are quoting R850–R1,200/m²." Tradie sees if they're under or overpricing vs market. Only possible with enough TradiQuote users — a moat competitors can't copy.</div>
+          </div>
+          <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">📸 Photo-to-Scope AI</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Tradie photographs the job site → Claude vision analyses it → suggests scope items, materials, quantities. Pre-fills the quote form. Possible today with Claude's multimodal API.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Summary count -->
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <div style="padding:8px 14px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:7px;font-size:12px;font-weight:700;color:#16a34a">✅ 6 Live features</div>
+        <div style="padding:8px 14px;background:rgba(29,78,216,0.08);border:1px solid rgba(29,78,216,0.2);border-radius:7px;font-size:12px;font-weight:700;color:var(--col-fe)">📈 12 R599 features</div>
+        <div style="padding:8px 14px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:7px;font-size:12px;font-weight:700;color:var(--col-db)">👷 3 R999 features</div>
+        <div style="padding:8px 14px;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.2);border-radius:7px;font-size:12px;font-weight:700;color:#f97316">🚀 3 Game-changers</div>
+        <div style="padding:8px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;color:var(--text)">📦 24 Total features</div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
 <!-- DRAWER -->
