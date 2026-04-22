@@ -864,6 +864,49 @@
   .margin-bar-track { flex: 1; height: 22px; background: var(--surface2); border-radius: 4px; overflow: hidden; position: relative; }
   .margin-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 700; color: #fff; }
   .margin-bar-note { font-size: 11px; color: var(--text-muted); width: 80px; flex-shrink: 0; }
+
+  /* ── Tab 10: Biz Plan ── */
+  .emyth-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .emyth-role { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 5px; }
+  .emyth-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+  .emyth-body { font-size: 11.5px; color: var(--text-muted); line-height: 1.6; }
+  .emyth-quote { font-size: 11.5px; font-style: italic; color: var(--text-muted); border-left: 3px solid var(--border); padding-left: 10px; margin-top: 12px; line-height: 1.55; }
+
+  .funnel-track { display: flex; margin-bottom: 14px; border-radius: var(--radius); overflow: hidden; border: 1.5px solid var(--border); }
+  .funnel-stage { flex: 1; padding: 13px 6px; background: var(--surface); cursor: pointer; transition: background .18s, color .18s; text-align: center; font-size: 11px; font-weight: 600; border-right: 1px solid var(--border); line-height: 1.4; }
+  .funnel-stage:last-child { border-right: none; }
+  .funnel-stage:hover { background: var(--surface2); }
+  .funnel-stage.active { background: rgba(15,118,110,0.12); color: var(--col-be); }
+  .funnel-stage .fs-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+  .funnel-detail { background: var(--surface); border: 1.5px solid var(--col-be); border-radius: var(--radius); padding: 16px 18px; display: none; }
+  .funnel-detail.visible { display: block; }
+
+  .roadmap-item { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 8px; background: var(--surface); }
+  .roadmap-header { padding: 12px 16px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 12.5px; font-weight: 600; user-select: none; }
+  .roadmap-header:hover { background: var(--surface2); }
+  .roadmap-body { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; font-size: 12px; color: var(--text-muted); line-height: 1.75; }
+  .roadmap-item.open .roadmap-body { max-height: 800px; padding: 12px 16px; border-top: 1px solid var(--border); }
+  .roadmap-chevron { margin-left: auto; transition: transform .3s; font-size: 10px; color: var(--text-muted); }
+  .roadmap-item.open .roadmap-chevron { transform: rotate(180deg); }
+
+  .pricing-tier { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 22px 20px; box-shadow: var(--shadow); position: relative; }
+  .pricing-tier.featured { border-color: var(--col-be); box-shadow: 0 0 0 3px rgba(15,118,110,0.1), var(--shadow-md); }
+  .pricing-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--col-be); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 20px; white-space: nowrap; }
+  .pricing-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .pricing-price { font-size: 30px; font-weight: 900; letter-spacing: -1px; line-height: 1; margin: 8px 0 2px; }
+  .pricing-period { font-size: 11px; color: var(--text-muted); margin-bottom: 14px; }
+  .pricing-feature { font-size: 11.5px; color: var(--text-muted); padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; gap: 6px; line-height: 1.4; }
+  .pricing-feature::before { content: '✓'; color: #22c55e; font-weight: 700; flex-shrink: 0; }
+  .pricing-market { margin-top: 12px; font-size: 11px; color: var(--text-muted); }
+  .pricing-bar { height: 5px; background: var(--surface2); border-radius: 3px; margin-top: 5px; overflow: hidden; }
+  .pricing-bar-fill { height: 100%; border-radius: 3px; }
+
+  .kpi-row { display: flex; gap: 10px; align-items: center; padding: 7px 12px; border-bottom: 1px solid var(--border); font-size: 11.5px; }
+  .kpi-row:last-child { border-bottom: none; }
+  .kpi-stage-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; width: 64px; text-align: center; }
+  .kpi-metric { flex: 2; color: var(--text); }
+  .kpi-target { flex: 1; font-weight: 700; color: #22c55e; }
+  .kpi-source { flex: 1.5; color: var(--text-muted); font-size: 10.5px; font-style: italic; }
 </style>
 </head>
 <body>
@@ -912,6 +955,10 @@
   <button class="tab-btn" onclick="switchTab('scaleplan')">
     <span class="tab-icon">🔧</span> Scale Plan
     <span class="tab-badge">111h total</span>
+  </button>
+  <button class="tab-btn" onclick="switchTab('bizplan')">
+    <span class="tab-icon">📋</span> Biz Plan
+    <span class="tab-badge">E-Myth</span>
   </button>
 </div>
 
@@ -3853,6 +3900,307 @@ requested section. No preamble, no explanation.</div>
 
 </div>
 
+<!-- ══════════════════════════════════════════
+     TAB 10: BIZ PLAN (E-MYTH)
+══════════════════════════════════════════ -->
+<div id="tab-bizplan" class="tab-content">
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat-card"><div class="stat-num stat-be">6</div><div class="stat-label">Business systems (Attract → Grow)</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:#f97316">&lt;4 min</div><div class="stat-label">Quote delivered on-site</div></div>
+    <div class="stat-card"><div class="stat-num stat-fe">R299→R999</div><div class="stat-label">Pricing ladder / mo</div></div>
+    <div class="stat-card"><div class="stat-num stat-db">111h</div><div class="stat-label">Engineering to 10K users</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:#16a34a">3</div><div class="stat-label">E-Myth roles mapped</div></div>
+  </div>
+
+  <!-- Section 1: E-Myth Framework -->
+  <div class="detail-section">
+    <div class="detail-section-header">The E-Myth Framework Applied to TradiQuote</div>
+    <div class="detail-section-body">
+      <div style="margin-bottom:14px;padding:12px 16px;background:rgba(15,118,110,0.07);border:1px solid rgba(15,118,110,0.2);border-radius:var(--radius);font-size:12.5px;color:var(--col-be);line-height:1.6">
+        <strong>Michael Gerber's core insight:</strong> Most small businesses fail not because the owner lacks skill at their trade, but because they were never taught how to build a business that works as a system. The tradie who is brilliant at laying tiles is often terrible at running a tiling business — not from lack of effort, but from lack of a system. <strong>TradiQuote is that system.</strong>
+      </div>
+      <div class="grid-3" style="gap:16px">
+
+        <div class="emyth-card">
+          <div class="emyth-role" style="color:#f97316">🚀 The Entrepreneur</div>
+          <div class="emyth-title">Craig — The Visionary</div>
+          <div class="emyth-body">Sees what could be. Built TradiQuote because he saw the gap: tradies losing R50K jobs because a quote took 3 days instead of 3 minutes. His role is product vision, customer discovery, pricing strategy, and growth — not doing the quoting himself.</div>
+          <div class="emyth-body" style="margin-top:8px"><strong>E-Myth trap avoided:</strong> Craig isn't servicing tradies manually. He built the system once. Now it runs.</div>
+          <div class="emyth-quote">"Work ON the business, not IN it. You're not selling quotes. You're building a business that delivers quotes systematically — for every tradie, every time."</div>
+        </div>
+
+        <div class="emyth-card">
+          <div class="emyth-role" style="color:var(--col-be)">📋 The Manager</div>
+          <div class="emyth-title">The App — The Organiser</div>
+          <div class="emyth-body">The app enforces the process — 4-step form, AI generation, client signing, invoicing — in the same order, every time, for every tradie. It never forgets a step, never skips the deposit, never sends an unprofessional proposal.</div>
+          <div class="emyth-body" style="margin-top:8px">This architecture diagram IS the management documentation. The admin CRM tracks every tester's activation, proposals sent, churn risk, and check-in schedule.</div>
+          <div class="emyth-quote">"Document every system so anyone can run it — even you, on your worst day. The system manages the people. The people work the system."</div>
+        </div>
+
+        <div class="emyth-card">
+          <div class="emyth-role" style="color:var(--col-db)">🔧 The Technician</div>
+          <div class="emyth-title">The Tradie — The Doer</div>
+          <div class="emyth-body">The tradie is brilliant at their trade — laying tiles, fixing roofs, running pipes. They should spend 100% of their time doing that, not writing proposals at midnight, not chasing clients for signatures, not formatting invoices in Word.</div>
+          <div class="emyth-body" style="margin-top:8px">TradiQuote gives the Technician a turn-key quoting system. They follow the steps; the app handles the business side.</div>
+          <div class="emyth-quote">"Give the Technician a system so they can stop being an accidental entrepreneur — and start being a professional tradesperson with a professional business."</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: The 6 Business Systems — Interactive Funnel -->
+  <div class="detail-section">
+    <div class="detail-section-header">The 6 Business Systems — Click a Stage to Explore</div>
+    <div class="detail-section-body">
+
+      <div class="funnel-track">
+        <div class="funnel-stage" data-id="attract" onclick="selectFunnelStage('attract')">
+          <span class="fs-icon">🎯</span>Attract
+        </div>
+        <div class="funnel-stage" data-id="convert" onclick="selectFunnelStage('convert')">
+          <span class="fs-icon">💬</span>Convert
+        </div>
+        <div class="funnel-stage" data-id="onboard" onclick="selectFunnelStage('onboard')">
+          <span class="fs-icon">🚀</span>Onboard
+        </div>
+        <div class="funnel-stage" data-id="deliver" onclick="selectFunnelStage('deliver')">
+          <span class="fs-icon">⚡</span>Deliver
+        </div>
+        <div class="funnel-stage" data-id="retain" onclick="selectFunnelStage('retain')">
+          <span class="fs-icon">🤝</span>Retain
+        </div>
+        <div class="funnel-stage" data-id="grow" onclick="selectFunnelStage('grow')">
+          <span class="fs-icon">📈</span>Grow
+        </div>
+      </div>
+
+      <div class="funnel-detail" id="funnel-detail">
+        <div style="font-size:12px;color:var(--text-muted);text-align:center;padding:8px 0">← Click any stage above to see the system that powers it</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Section 3: Pricing Ladder -->
+  <div class="detail-section">
+    <div class="detail-section-header">Pricing Ladder — R299 → R599 → R999</div>
+    <div class="detail-section-body">
+      <div class="grid-3" style="gap:20px;margin-bottom:14px">
+
+        <!-- Solo -->
+        <div class="pricing-tier">
+          <div class="pricing-name">Solo Tradie</div>
+          <div class="pricing-price stat-be">R299</div>
+          <div class="pricing-period">per month · beta testers locked in for life</div>
+          <div class="pricing-feature">1 user · 20 proposals/month</div>
+          <div class="pricing-feature">AI-generated professional proposals</div>
+          <div class="pricing-feature">WhatsApp + email sending</div>
+          <div class="pricing-feature">Digital client signatures (ECTA-compliant)</div>
+          <div class="pricing-feature">EFT deposit invoicing</div>
+          <div class="pricing-feature">Photo upload (10/proposal)</div>
+          <div class="pricing-feature">PWA — works offline on-site</div>
+          <div class="pricing-feature">Push notifications (client opened/signed)</div>
+          <div class="pricing-market">Target market: <strong>70%</strong> of SA tradies (independents)</div>
+          <div class="pricing-bar"><div class="pricing-bar-fill" style="width:70%;background:var(--col-be)"></div></div>
+        </div>
+
+        <!-- Growing — featured -->
+        <div class="pricing-tier featured">
+          <div class="pricing-badge">Coming soon · Most popular</div>
+          <div class="pricing-name">Growing Business</div>
+          <div class="pricing-price stat-fe">R599</div>
+          <div class="pricing-period">per month · launches when R299 is full</div>
+          <div class="pricing-feature">Everything in Solo +</div>
+          <div class="pricing-feature">Unlimited proposals</div>
+          <div class="pricing-feature">3 user seats (e.g. owner + 2 field guys)</div>
+          <div class="pricing-feature">Analytics dashboard (conversion rates, MRR)</div>
+          <div class="pricing-feature">Full client CRM with job history</div>
+          <div class="pricing-feature">Branded PDF templates</div>
+          <div class="pricing-market">Target market: <strong>25%</strong> of SA tradies (established sole traders)</div>
+          <div class="pricing-bar"><div class="pricing-bar-fill" style="width:25%;background:var(--col-fe)"></div></div>
+        </div>
+
+        <!-- Team -->
+        <div class="pricing-tier">
+          <div class="pricing-badge" style="background:var(--col-db)">Future · Post-10K users</div>
+          <div class="pricing-name">Team</div>
+          <div class="pricing-price stat-db">R999</div>
+          <div class="pricing-period">per month · small trade companies</div>
+          <div class="pricing-feature">Everything in Growing +</div>
+          <div class="pricing-feature">5 user seats</div>
+          <div class="pricing-feature">White-label PDFs (your brand, your domain)</div>
+          <div class="pricing-feature">Xero accounting integration</div>
+          <div class="pricing-feature">WhatsApp Business API (automated follow-ups)</div>
+          <div class="pricing-feature">Priority support + onboarding call</div>
+          <div class="pricing-market">Target market: <strong>5%</strong> of SA tradies (small companies)</div>
+          <div class="pricing-bar"><div class="pricing-bar-fill" style="width:5%;background:var(--col-db)"></div></div>
+        </div>
+
+      </div>
+      <div style="padding:10px 14px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:7px;font-size:12px;color:#22c55e;font-weight:600">
+        💡 All 3 plans cost TradiQuote ~R20/subscriber/month to serve. Every tier upgrade is near-pure margin. R999 earns 3× R299 revenue for essentially the same infrastructure cost.
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: Product Roadmap -->
+  <div class="detail-section">
+    <div class="detail-section-header">Product Roadmap — Click a Phase to Expand</div>
+    <div class="detail-section-body">
+
+      <!-- Phase: Done -->
+      <div class="roadmap-item" data-id="done">
+        <div class="roadmap-header" onclick="toggleRoadmap('done')">
+          <span style="background:rgba(34,197,94,0.15);color:#16a34a;font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;flex-shrink:0">✅ DONE</span>
+          <span>Foundation → Production — Phases 1–12</span>
+          <span style="font-size:11px;color:var(--text-muted);font-weight:400">All 12 sessions complete · Live on Railway + Vercel</span>
+          <span class="roadmap-chevron">▼</span>
+        </div>
+        <div class="roadmap-body">
+          <div style="columns:2;column-gap:24px">
+            <div>• <strong>Phase 1–2:</strong> Foundation (Supabase schema, Express, Vite/React) + Auth (login, protected routes, admin guard)</div>
+            <div>• <strong>Phase 3–4:</strong> Core app (4-step quote form, AI generation, dashboard) + Sending &amp; Signing (WhatsApp URL, public proposal, canvas signature)</div>
+            <div>• <strong>Phase 5:</strong> Payments — EFT invoicing, Paystack subscription (R10 → R299), webhook handler for all 5 events</div>
+            <div>• <strong>Phase 6:</strong> Beta CRM — admin dashboard, feedback widget, Day 14 + Day 28 check-in scheduler, Craig notification on signup</div>
+            <div>• <strong>Phase 7:</strong> Polish — PWA manifest + icons, service worker (offline + push), pdf via html2pdf.js, settings page, photo upload, tutorial tour</div>
+            <div>• <strong>Phase 8:</strong> Anti-abuse — single-session JTI, rate limits, proposal cap (15 warn / 20 block), fuzzy name dedup, manual review queue</div>
+            <div>• <strong>Phase 9:</strong> Landing page rewrite (SA voice, pain-first) + 3 Remotion animated videos, BetaSignup cleanup</div>
+            <div>• <strong>Phase 10:</strong> Craig's 17-item review — scope template editor, brand colour, reference numbers, AI/manual toggle, letterhead PDFs</div>
+            <div>• <strong>Phase 11:</strong> QTY×price line items, client import/export (Excel), scope template download fix</div>
+            <div>• <strong>Phase 12:</strong> StepReview crash fix (messageMode bug), StepScope validation, signature image on signed proposals</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase: Now -->
+      <div class="roadmap-item" data-id="now">
+        <div class="roadmap-header" onclick="toggleRoadmap('now')">
+          <span style="background:rgba(234,179,8,0.15);color:#ca8a04;font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;flex-shrink:0">🟡 NOW</span>
+          <span>Beta Growth — 0 to 100 paying subscribers</span>
+          <span style="font-size:11px;color:var(--text-muted);font-weight:400">Phase 1 Scaling · 24h engineering · Do now</span>
+          <span class="roadmap-chevron">▼</span>
+        </div>
+        <div class="roadmap-body">
+          <div style="margin-bottom:8px;font-size:12.5px;color:var(--text)">Focus: get real paying users, fix what breaks first, instrument the system before scaling.</div>
+          <ul style="margin:0;padding-left:18px">
+            <li><strong>Upgrade Resend to Starter ($20/mo)</strong> — 0h (config only). Hits free limit at ~25 active users. Do immediately.</li>
+            <li><strong>Sentry error monitoring</strong> — 4h. Catches Railway exceptions before users report them. Free tier covers current scale.</li>
+            <li><strong>Async AI generation queue (BullMQ + Upstash Redis)</strong> — 16h. Currently synchronous Claude calls block the HTTP worker for 2–5s. Async queue prevents Express thread exhaustion at load.</li>
+            <li><strong>k6 load test suite</strong> — 4h. Simulate 50 concurrent users, find the first bottleneck before users do.</li>
+          </ul>
+          <div style="margin-top:10px;padding:7px 10px;background:rgba(234,179,8,0.08);border-radius:6px;font-size:11.5px;color:#ca8a04"><strong>Total: 24h · ~6 solo days at 4h/day · +R460/mo infrastructure</strong></div>
+        </div>
+      </div>
+
+      <!-- Phase: Near -->
+      <div class="roadmap-item" data-id="near">
+        <div class="roadmap-header" onclick="toggleRoadmap('near')">
+          <span style="background:rgba(29,78,216,0.12);color:var(--col-fe);font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;flex-shrink:0">🔜 NEAR</span>
+          <span>Scale to 1,000 Subscribers — Phase 2</span>
+          <span style="font-size:11px;color:var(--text-muted);font-weight:400">Trigger: ~200 paying subscribers · 31h engineering</span>
+          <span class="roadmap-chevron">▼</span>
+        </div>
+        <div class="roadmap-body">
+          <div style="margin-bottom:8px;font-size:12.5px;color:var(--text)">Supabase free tier is exhausted. Dashboard starts feeling slow. Time to add caching and upgrade the DB.</div>
+          <ul style="margin:0;padding-left:18px">
+            <li><strong>Upgrade Supabase to Pro ($25/mo)</strong> — 1h. DB hits 500 MB at ~200 users. Pro adds connection pool, 8GB storage, daily backups.</li>
+            <li><strong>Redis caching for dashboard + proposal list</strong> — 12h. 60-second TTL on GET /proposals and GET /clients. Cuts DB reads by 80% at peak hour.</li>
+            <li><strong>Async AI queue (reuse Phase 1 BullMQ)</strong> — 8h. Wire proposal creation to background worker, return jobId, poll for completion.</li>
+            <li><strong>Upgrade Railway to Pro + add worker dyno</strong> — 2h (config). Separate web and worker processes.</li>
+            <li><strong>Autoscaling config + health checks</strong> — 4h. Railway horizontal scaling rules triggered by CPU/memory thresholds.</li>
+            <li><strong>Monitoring dashboard (Railway metrics + Sentry alerts)</strong> — 4h. Alert on error rate spike, P95 latency, memory pressure.</li>
+          </ul>
+          <div style="margin-top:10px;padding:7px 10px;background:rgba(29,78,216,0.08);border-radius:6px;font-size:11.5px;color:var(--col-fe)"><strong>Total: 31h · ~8 solo days · +R740/mo infrastructure over Phase 1</strong></div>
+        </div>
+      </div>
+
+      <!-- Phase: Mid -->
+      <div class="roadmap-item" data-id="mid">
+        <div class="roadmap-header" onclick="toggleRoadmap('mid')">
+          <span style="background:rgba(124,58,237,0.12);color:var(--col-db);font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;flex-shrink:0">🔮 MID</span>
+          <span>Scale to 10,000 Subscribers — Phase 3 + R599 launch</span>
+          <span style="font-size:11px;color:var(--text-muted);font-weight:400">Trigger: ~2,000 paying subscribers · 56h engineering</span>
+          <span class="roadmap-chevron">▼</span>
+        </div>
+        <div class="roadmap-body">
+          <div style="margin-bottom:8px;font-size:12.5px;color:var(--text)">At this scale, TradiQuote is generating R600K+/mo. Time to harden the infrastructure and launch the next pricing tier.</div>
+          <ul style="margin:0;padding-left:18px">
+            <li><strong>Supabase compute upgrade + PgBouncer</strong> — 4h. Add connection pooler config, upgrade compute add-on. Prevents connection queue under high concurrency.</li>
+            <li><strong>Move PDF storage to Cloudflare R2</strong> — 16h. Supabase storage costs scale linearly. R2 is ~5× cheaper and globally distributed. Net saving at scale.</li>
+            <li><strong>Edge rate limiting via Cloudflare Workers</strong> — 20h. Rate limiting at the CDN edge, before requests hit Railway. Abuse blocked before it costs compute.</li>
+            <li><strong>Full k6 load test suite (10K concurrent)</strong> — 16h. Simulate peak Black Friday–style load. Find breaking point before users do.</li>
+            <li><strong>DevOps onboarding or upskill</strong> — ~80h. At this scale, a part-time DevOps resource or Craig upskilling on infra management pays for itself immediately.</li>
+            <li><strong>Launch R599 "Growing Business" plan</strong> — multi-user, analytics, unlimited proposals. High-volume beta users are natural first buyers.</li>
+          </ul>
+          <div style="margin-top:10px;padding:7px 10px;background:rgba(124,58,237,0.08);border-radius:6px;font-size:11.5px;color:var(--col-db)"><strong>Total: 56h engineering · ~14 solo days · +R1,800/mo · Revenue at this point: R2.99M/mo</strong></div>
+        </div>
+      </div>
+
+      <!-- Phase: Future -->
+      <div class="roadmap-item" data-id="future">
+        <div class="roadmap-header" onclick="toggleRoadmap('future')">
+          <span style="background:rgba(249,115,22,0.12);color:#f97316;font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;flex-shrink:0">🚀 FUTURE</span>
+          <span>10K+ Subscribers — International + Team Plan</span>
+          <span style="font-size:11px;color:var(--text-muted);font-weight:400">Trigger: market signals · Launch when demand is proven</span>
+          <span class="roadmap-chevron">▼</span>
+        </div>
+        <div class="roadmap-body">
+          <div style="margin-bottom:8px;font-size:12.5px;color:var(--text)">Each of these is triggered by user demand — not added speculatively. E-Myth principle: build what the system needs, when it needs it.</div>
+          <ul style="margin:0;padding-left:18px">
+            <li><strong>Stripe international payments</strong> — when the first international customer signs up. USD billing, multi-currency proposals.</li>
+            <li><strong>Xero accounting integration</strong> — post-beta, when tradies ask for it. Invoices auto-sync to Xero. No double-entry.</li>
+            <li><strong>WhatsApp Business API (Twilio/Meta)</strong> — when 100+ users justify the Meta approval process. Automated follow-up sequences, signed-proposal WhatsApp notifications.</li>
+            <li><strong>R999 Team plan</strong> — white-label PDFs, 5 seats, priority support. Targets small trade companies (3–10 field staff).</li>
+            <li><strong>Multi-currency</strong> — ZAR only for now. Add USD, GBP, AUD when international demand is confirmed by signups.</li>
+            <li><strong>React Native mobile apps</strong> — when PWA limitations are proven (camera, offline, push). Currently PWA covers all mobile needs.</li>
+          </ul>
+          <div style="margin-top:10px;padding:7px 10px;background:rgba(249,115,22,0.08);border-radius:6px;font-size:11.5px;color:#f97316"><strong>"Add features when the system demands them — not when you imagine they'd be nice." — E-Myth</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Section 5: KPIs -->
+  <div class="detail-section">
+    <div class="detail-section-header">Key Performance Indicators — By Lifecycle Stage</div>
+    <div class="detail-section-body">
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden">
+        <!-- Header -->
+        <div style="display:flex;gap:10px;padding:8px 12px;background:var(--surface2);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);border-bottom:2px solid var(--border)">
+          <div style="width:64px;flex-shrink:0">Stage</div>
+          <div class="kpi-metric">Metric</div>
+          <div class="kpi-target">Target</div>
+          <div class="kpi-source">Data source</div>
+        </div>
+        <!-- Attract -->
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(249,115,22,0.12);color:#f97316">Attract</span><span class="kpi-metric">Landing page → beta signup rate</span><span class="kpi-target">8%+</span><span class="kpi-source">Vercel Analytics</span></div>
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(249,115,22,0.12);color:#f97316">Attract</span><span class="kpi-metric">WhatsApp referrals per month</span><span class="kpi-target">Track &amp; grow</span><span class="kpi-source">Manual / CRM referral_source</span></div>
+        <!-- Convert -->
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(234,179,8,0.12);color:#ca8a04">Convert</span><span class="kpi-metric">Trial → activated within 7 days</span><span class="kpi-target">60%+</span><span class="kpi-source">beta_signups.activated_at</span></div>
+        <!-- Onboard -->
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(29,78,216,0.1);color:var(--col-fe)">Onboard</span><span class="kpi-metric">Signup → first proposal sent in 48h</span><span class="kpi-target">70%+</span><span class="kpi-source">proposals.created_at vs users.created_at</span></div>
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(29,78,216,0.1);color:var(--col-fe)">Onboard</span><span class="kpi-metric">Onboarding completion rate</span><span class="kpi-target">85%+</span><span class="kpi-source">users.scope_template not null</span></div>
+        <!-- Deliver -->
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(15,118,110,0.1);color:var(--col-be)">Deliver</span><span class="kpi-metric">Proposals sent per user per month</span><span class="kpi-target">5+ (habit)</span><span class="kpi-source">beta_tester_summary view</span></div>
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(15,118,110,0.1);color:var(--col-be)">Deliver</span><span class="kpi-metric">Proposal → signed rate</span><span class="kpi-target">40%+</span><span class="kpi-source">proposals WHERE status = 'signed'</span></div>
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(15,118,110,0.1);color:var(--col-be)">Deliver</span><span class="kpi-metric">Time from quote start → WhatsApp send</span><span class="kpi-target">&lt;4 minutes</span><span class="kpi-source">proposals.sent_at − created_at</span></div>
+        <!-- Retain -->
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(124,58,237,0.1);color:var(--col-db)">Retain</span><span class="kpi-metric">Day 14 still active</span><span class="kpi-target">65%+</span><span class="kpi-source">beta_signups.last_contacted_at</span></div>
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(124,58,237,0.1);color:var(--col-db)">Retain</span><span class="kpi-metric">Day 28 still active (not churned)</span><span class="kpi-target">50%+</span><span class="kpi-source">beta_signups.churned_at IS NULL</span></div>
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(124,58,237,0.1);color:var(--col-db)">Retain</span><span class="kpi-metric">Average feedback severity (1–5)</span><span class="kpi-target">≤ 2.5</span><span class="kpi-source">AVG(beta_feedback.severity)</span></div>
+        <!-- Grow -->
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(34,197,94,0.1);color:#16a34a">Grow</span><span class="kpi-metric">Monthly churn rate</span><span class="kpi-target">&lt;5%</span><span class="kpi-source">beta_signups.churned_at tracking</span></div>
+        <div class="kpi-row"><span class="kpi-stage-badge" style="background:rgba(34,197,94,0.1);color:#16a34a">Grow</span><span class="kpi-metric">MRR expansion — users on R599+ in 12mo</span><span class="kpi-target">15%+</span><span class="kpi-source">Paystack subscription plan code</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <!-- DRAWER -->
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
@@ -4665,6 +5013,84 @@ section. No preamble, no explanation.</div>`
     )
   },
 };
+
+// ── Tab 10: Biz Plan ─────────────────────────────
+const FUNNEL_DATA = {
+  attract: {
+    label: '🎯 Attract',
+    what: 'Tradies find TradiQuote via the landing page, WhatsApp referrals from other tradies, or Craig\'s direct outreach. The landing page leads with the core pain: "Quote done before you drive home."',
+    systems: ['Landing.jsx (tradiquote.co.za)', 'BetaSignup.jsx', 'WhatsApp word-of-mouth (wa.me links)', 'Future: Google Ads targeting SA trade keywords'],
+    emyth: '"Your marketing is a system, not a wish." — The landing page converts a specific pain (slow quotes = lost jobs) into one clear action (R10 trial). Same message, every time.',
+    metric: 'Landing page → beta signup conversion. Target: 8%+.',
+    status: 'live'
+  },
+  convert: {
+    label: '💬 Convert',
+    what: 'Prospect fills the beta signup form → Paystack charges R10 → account created → welcome email sent → Craig notified. R10 is intentional: free signups don\'t test seriously. Card captured for month-2 recurring billing.',
+    systems: ['BetaSignup.jsx', 'POST /api/beta/signup', 'Paystack: R10 trial plan subscription', 'Resend: beta_welcome + craig_new_signup emails', 'beta_signups table + admin CRM'],
+    emyth: '"The sale is part of the system, not a conversation." — No manual invoicing, no chasing, no human needed. Paystack handles recurring billing. Craig gets an email and the CRM updates automatically.',
+    metric: 'Trial → activated in 7 days. Target: 60%+.',
+    status: 'live'
+  },
+  onboard: {
+    label: '🚀 Onboard',
+    what: 'New user completes Onboarding.jsx (business name, logo, scope template, bank details, trade type). A driver.js 5-step tutorial runs on first dashboard load. Activation milestone = first proposal sent.',
+    systems: ['Onboarding.jsx', 'Settings.jsx (scope template with QTY + unit price, Excel import)', 'TutorialDriver.jsx (driver.js, 5 steps, restartable from Settings)', 'POST /api/proposals (first send = activated)'],
+    emyth: '"The system teaches people how to use the system." — The onboarding flow hands a tradie a pre-built scope template for their trade type. First quote takes 4 minutes. Second takes 2.',
+    metric: 'Signup → first proposal sent in 48h. Target: 70%+.',
+    status: 'live'
+  },
+  deliver: {
+    label: '⚡ Deliver',
+    what: 'The core loop: 4-step wizard (client details, job type, scope items with QTY×price, AI/manual review) → AI writes the proposal → tradie sends via WhatsApp or email → client opens → signs digitally → deposit invoice created automatically. Under 4 minutes on-site.',
+    systems: ['NewQuote.jsx (StepClient, StepJob, StepScope, StepReview)', 'POST /api/proposals → claude-haiku-4-5 AI generation', 'ProposalPublic.jsx (/p/:token — zero auth, mobile-first)', 'SignatureModal.jsx (canvas draw + type, ECTA-compliant)', 'InvoicePublic.jsx (/invoice/:token — EFT bank details)'],
+    emyth: '"The work IS the system — reproducible, consistent, professional." — Every tradie delivers the same quality proposal regardless of their writing skills. The AI writes; they approve and send.',
+    metric: 'Proposals sent/user/month (habit = 5+). Proposal → signed rate (target: 40%+).',
+    status: 'live'
+  },
+  retain: {
+    label: '🤝 Retain',
+    what: 'After delivery, the system keeps the tradie engaged: push notifications when clients open or sign proposals, in-app notification feed (bell icon), help widget to message Craig directly, feedback widget (severity 1–5), and scheduled Day 14 + Day 28 check-in messages via Craig\'s admin CRM.',
+    systems: ['sw.js (VAPID push, notificationclick handler)', 'notifications table + GET /api/notifications', 'FeedbackWidget.jsx (screen + severity + screenshot)', 'HelpWidget.jsx (direct WhatsApp/email to Craig)', 'CheckinPanel.jsx (Day 14 + Day 28 templates)', 'scheduler.js (automated check-in triggers)'],
+    emyth: '"Retention is a system, not luck." — Craig\'s Day 14 and Day 28 check-ins run on a schedule. The admin CRM flags who needs attention. Nothing falls through the cracks — because the system won\'t let it.',
+    metric: 'Day 14 active: 65%+. Day 28 active: 50%+. Avg feedback severity: ≤2.5.',
+    status: 'live'
+  },
+  grow: {
+    label: '📈 Grow',
+    what: 'Retained users are upsold as their business grows. Volume triggers (proposal count, client count) surface the upgrade prompt. Beta testers lock in their pricing tier permanently — a loyalty reward that also creates a referral incentive ("I\'m on the old pricing").',
+    systems: ['subscription.js (Paystack plan management)', 'Settings.jsx (subscription tab, plan comparison)', 'Future: R599 plan (multi-user + analytics) in Paystack', 'Future: Xero integration (post-beta, when tradies ask)', 'Future: WhatsApp Business API (100+ users justify Meta approval)', 'Future: Stripe for international expansion'],
+    emyth: '"Every customer relationship has an arc — you own that arc." — TradiQuote knows when a tradie is growing (proposal volume, new clients). The upsell isn\'t a cold ask; it\'s a natural next step in a documented system.',
+    metric: 'MRR expansion: 15%+ of users on R599+ within 12 months of launch.',
+    status: 'planned'
+  }
+};
+
+function selectFunnelStage(id) {
+  document.querySelectorAll('.funnel-stage').forEach(el => el.classList.remove('active'));
+  document.querySelector('.funnel-stage[data-id="' + id + '"]').classList.add('active');
+  const detail = document.getElementById('funnel-detail');
+  const d = FUNNEL_DATA[id];
+  detail.innerHTML =
+    '<div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">' +
+      '<div style="flex:2;min-width:220px">' +
+        '<div style="font-size:14px;font-weight:800;margin-bottom:8px;color:var(--col-be)">' + d.label + '</div>' +
+        '<p style="font-size:12.5px;line-height:1.6;color:var(--text-muted);margin:0 0 10px">' + d.what + '</p>' +
+        '<div style="font-size:11.5px;padding:9px 12px;background:rgba(15,118,110,0.08);border-radius:6px;border-left:3px solid var(--col-be);color:var(--col-be);line-height:1.55"><strong>E-Myth:</strong> ' + d.emyth + '</div>' +
+      '</div>' +
+      '<div style="flex:1;min-width:190px">' +
+        '<div style="font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Systems powering this</div>' +
+        '<ul style="margin:0;padding:0 0 0 14px;font-size:11.5px;color:var(--text-muted);line-height:1.9">' + d.systems.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ul>' +
+        '<div style="margin-top:12px;font-size:11.5px;color:#22c55e;font-weight:600">📊 ' + d.metric + '</div>' +
+        '<div style="margin-top:5px;display:inline-block;font-size:10px;padding:2px 10px;border-radius:20px;font-weight:700;' + (d.status === 'live' ? 'background:rgba(34,197,94,0.12);color:#16a34a' : 'background:rgba(249,115,22,0.12);color:#f97316') + '">' + (d.status === 'live' ? '✅ Live in production' : '🔜 Planned') + '</div>' +
+      '</div>' +
+    '</div>';
+  detail.classList.add('visible');
+}
+
+function toggleRoadmap(id) {
+  document.querySelector('.roadmap-item[data-id="' + id + '"]').classList.toggle('open');
+}
 </script>
 </body>
 </html>
