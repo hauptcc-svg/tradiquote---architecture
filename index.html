@@ -4090,8 +4090,9 @@ requested section. No preamble, no explanation.</div>
             <li><strong>Sentry error monitoring</strong> — 4h. Catches Railway exceptions before users report them. Free tier covers current scale.</li>
             <li><strong>Async AI generation queue (BullMQ + Upstash Redis)</strong> — 16h. Currently synchronous Claude calls block the HTTP worker for 2–5s. Async queue prevents Express thread exhaustion at load.</li>
             <li><strong>k6 load test suite</strong> — 4h. Simulate 50 concurrent users, find the first bottleneck before users do.</li>
+            <li><strong>Desktop PWA layout</strong> — 8h. CSS media query breakpoints at 1024px+: left sidebar replaces bottom nav, wider proposal cards, multi-column dashboard grid. PWA <code>display: standalone</code> already set — Chrome/Edge "Install app" prompt makes it feel like a native desktop application. Mobile experience stays identical. One codebase, two optimised interfaces.</li>
           </ul>
-          <div style="margin-top:10px;padding:7px 10px;background:rgba(234,179,8,0.08);border-radius:6px;font-size:11.5px;color:#ca8a04"><strong>Total: 24h · ~6 solo days at 4h/day · +R460/mo infrastructure</strong></div>
+          <div style="margin-top:10px;padding:7px 10px;background:rgba(234,179,8,0.08);border-radius:6px;font-size:11.5px;color:#ca8a04"><strong>Total: 32h · ~8 solo days at 4h/day · +R460/mo infrastructure</strong></div>
         </div>
       </div>
 
@@ -4296,6 +4297,10 @@ requested section. No preamble, no explanation.</div>
             <div style="font-size:12px;font-weight:700;margin-bottom:3px">📋 Certificate of Completion</div>
             <div style="font-size:11px;color:var(--text-muted);line-height:1.5">After sign-off: auto-generate formal PDF with job scope, dates, before/after photos, signatures. Used for insurance, body corporates, municipality compliance. Elevates credibility.</div>
           </div>
+          <div style="background:rgba(29,78,216,0.06);border:1px solid rgba(29,78,216,0.18);border-radius:7px;padding:10px 12px">
+            <div style="font-size:12px;font-weight:700;margin-bottom:3px">🖥️ Desktop App Experience</div>
+            <div style="font-size:11px;color:var(--text-muted);line-height:1.5">Full-width desktop layout: left sidebar nav, multi-column dashboard, wide proposal editor. PWA installs as a standalone app via Chrome/Edge — no browser chrome, feels native. Mobile layout stays identical. One codebase, two optimised interfaces. ~8h of CSS media queries.</div>
+          </div>
         </div>
 
         <!-- R999 tier -->
@@ -4339,10 +4344,10 @@ requested section. No preamble, no explanation.</div>
       <!-- Summary count -->
       <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
         <div style="padding:8px 14px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:7px;font-size:12px;font-weight:700;color:#16a34a">✅ 6 Live features</div>
-        <div style="padding:8px 14px;background:rgba(29,78,216,0.08);border:1px solid rgba(29,78,216,0.2);border-radius:7px;font-size:12px;font-weight:700;color:var(--col-fe)">📈 12 R599 features</div>
+        <div style="padding:8px 14px;background:rgba(29,78,216,0.08);border:1px solid rgba(29,78,216,0.2);border-radius:7px;font-size:12px;font-weight:700;color:var(--col-fe)">📈 13 R599 features</div>
         <div style="padding:8px 14px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:7px;font-size:12px;font-weight:700;color:var(--col-db)">👷 3 R999 features</div>
         <div style="padding:8px 14px;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.2);border-radius:7px;font-size:12px;font-weight:700;color:#f97316">🚀 3 Game-changers</div>
-        <div style="padding:8px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;color:var(--text)">📦 24 Total features</div>
+        <div style="padding:8px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;color:var(--text)">📦 25 Total features</div>
       </div>
 
     </div>
