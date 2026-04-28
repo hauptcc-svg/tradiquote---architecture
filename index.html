@@ -1807,7 +1807,7 @@ const isMarketingSite =
           <span style="background:#ea580c;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;">20 endpoints</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;">
-          <div style="display:flex;align-items:center;gap:5px;padding:4px 8px;background:white;border-radius:4px;border:1px solid var(--border);"><span class="method method-post">POST</span><span style="font-family:'Fira Code',monospace;font-size:10px;">/signup</span><span style="font-size:10px;color:var(--text-muted);margin-left:2px;">+fuzzy check</span></div>
+          <div style="display:flex;align-items:center;gap:5px;padding:4px 8px;background:white;border-radius:4px;border:1px solid var(--border);"><span class="method method-post">POST</span><span style="font-family:'Fira Code',monospace;font-size:10px;">/signup</span><span style="font-size:10px;color:var(--text-muted);margin-left:2px;">+fuzzy · re-attempt</span></div>
           <div style="display:flex;align-items:center;gap:5px;padding:4px 8px;background:white;border-radius:4px;border:1px solid var(--border);"><span class="method method-get">GET</span><span style="font-family:'Fira Code',monospace;font-size:10px;">/my-signup</span></div>
           <div style="display:flex;align-items:center;gap:5px;padding:4px 8px;background:white;border-radius:4px;border:1px solid var(--border);"><span class="method method-post">POST</span><span style="font-family:'Fira Code',monospace;font-size:10px;">/activity</span></div>
           <div style="display:flex;align-items:center;gap:5px;padding:4px 8px;background:white;border-radius:4px;border:1px solid var(--border);"><span class="method method-post">POST</span><span style="font-family:'Fira Code',monospace;font-size:10px;">/feedback</span></div>
@@ -3006,7 +3006,7 @@ requested section. No preamble, no explanation.</div>
         </div>
         <div style="padding:9px 10px;border-radius:var(--radius-sm);background:#f0fdfa;border:1.5px solid #99f6e4;">
           <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><span style="width:18px;height:18px;border-radius:50%;background:#0f766e;color:white;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span><span style="font-family:'Fira Code',monospace;font-size:10px;font-weight:700;color:#0f766e;">POST /api/beta/signup</span></div>
-          <div style="font-size:10px;color:var(--text-muted);">Fuzzy name check (pg_trgm ≥60%). Dedup on email + WhatsApp. Fraud flag if match.</div>
+          <div style="font-size:10px;color:var(--text-muted);">Fuzzy name check (pg_trgm ≥60%). Dedup on email + WhatsApp. If duplicate is pending payment → re-issue Paystack link. Fraud flag if match.</div>
         </div>
         <div style="padding:9px 10px;border-radius:var(--radius-sm);background:#fff7ed;border:1.5px solid #fed7aa;">
           <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><span style="width:18px;height:18px;border-radius:50%;background:#ea580c;color:white;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span><span style="font-size:10px;font-weight:700;color:#b45309;">Paystack init</span></div>
@@ -3025,9 +3025,10 @@ requested section. No preamble, no explanation.</div>
           <div style="font-size:10px;color:var(--text-muted);">Resend: welcome email to tester + new signup alert to Craig (with fraud flag if triggered).</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
         <div style="padding:8px 12px;border-radius:var(--radius-sm);background:#fef2f2;border:1px solid #fecaca;font-size:11px;color:var(--text-muted);"><strong style="color:#dc2626;">Fraud path:</strong> fuzzy match ≥60% → review_status = pending_review → Craig sees alert in admin → approve or reject. requirePaid blocks rejected testers.</div>
         <div style="padding:8px 12px;border-radius:var(--radius-sm);background:#fef2f2;border:1px solid #fecaca;font-size:11px;color:var(--text-muted);"><strong style="color:#dc2626;">Churn path:</strong> Paystack fires subscription.disable → churned_at set → requirePaid returns 402 → frontend shows /subscribe screen.</div>
+        <div style="padding:8px 12px;border-radius:var(--radius-sm);background:#f0fdf4;border:1px solid #bbf7d0;font-size:11px;color:var(--text-muted);"><strong style="color:#15803d;">Abandoned re-attempt:</strong> duplicate email/WhatsApp with payment_status = pending → skip insert, re-init Paystack with reference BETA-{id}-{timestamp} → return fresh authorization_url. No new row created.</div>
       </div>
     </div>
   </div>
