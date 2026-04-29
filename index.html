@@ -907,6 +907,182 @@
   .kpi-metric { flex: 2; color: var(--text); }
   .kpi-target { flex: 1; font-weight: 700; color: #22c55e; }
   .kpi-source { flex: 1.5; color: var(--text-muted); font-size: 10.5px; font-style: italic; }
+
+  /* ═══════════════════════════════════════
+     MOBILE RESPONSIVE — 768px and below
+     ═══════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Header */
+    .app-header {
+      padding: 12px 16px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .app-header h1 { font-size: 15px; gap: 8px; }
+    .app-header h1 span.logo { font-size: 11px; padding: 2px 6px; }
+    .header-meta { font-size: 10px; width: 100%; }
+
+    /* Tab bar — horizontal scroll, smaller buttons */
+    .tab-bar {
+      padding: 0 8px;
+      gap: 0;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      padding: 10px 10px;
+      font-size: 11px;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .tab-icon { font-size: 14px; }
+    .tab-badge { display: none; }
+
+    /* Tab content — tighter padding */
+    .tab-content { padding: 14px 12px; }
+
+    /* Stats bar — 3 columns on mobile */
+    .stats-bar {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .stat-card { padding: 10px 8px; }
+    .stat-num { font-size: 18px; }
+    .stat-label { font-size: 10px; }
+
+    /* Grid classes — stack to single column */
+    .grid-2 { grid-template-columns: 1fr; gap: 10px; }
+    .grid-3 { grid-template-columns: 1fr; gap: 10px; }
+
+    /* Architecture 3-col grid → single column */
+    .arch-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    /* Hide the arrow connectors between columns on mobile */
+    .arch-arrow { display: none; }
+
+    /* External services row — 2 columns on mobile */
+    .ext-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .ext-block { padding: 10px 10px; }
+    .ext-block-icon { font-size: 16px; }
+    .ext-block-name { font-size: 12px; }
+    .ext-block-sub { font-size: 10px; }
+
+    /* Drawer — full width on mobile */
+    .drawer { width: 100vw; }
+    .drawer-header { padding: 16px 16px 12px; }
+    .drawer-body { padding: 14px 16px; }
+    .drawer-title { font-size: 15px; }
+
+    /* Drawer route items — tighter */
+    .d-route { flex-wrap: wrap; gap: 6px; }
+    .d-field-name { width: 130px; font-size: 10px; }
+
+    /* Detail section panels */
+    .detail-section-body { padding: 12px; }
+    .detail-section-header { padding: 12px 14px; }
+
+    /* Inline grid overrides — catch all multi-column inline grids */
+    /* These override style="display:grid;grid-template-columns:..." on elements */
+    [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+    [style*="grid-template-columns: repeat(5"] { grid-template-columns: repeat(2,1fr) !important; }
+    [style*="grid-template-columns: repeat(6"] { grid-template-columns: repeat(2,1fr) !important; }
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 2fr 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 2fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 200px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 220px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 240px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 260px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 280px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 300px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 320px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 350px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 380px"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 200px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 220px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
+
+    /* Flex rows that should wrap on mobile */
+    .flow-diagram { flex-direction: column; align-items: flex-start; }
+    .flow-step { flex-wrap: wrap; }
+    .flow-row { flex-wrap: wrap; }
+    .margin-bar-row { flex-wrap: wrap; }
+    .margin-bar-label { width: 60px; font-size: 10px; }
+    .margin-bar-note { width: 60px; font-size: 10px; }
+
+    /* KPI table — hide source column on mobile */
+    .kpi-source { display: none; }
+    .kpi-stage-badge { width: 52px; font-size: 9px; }
+
+    /* Funnel stages — wrapping row */
+    .funnel-track { flex-wrap: wrap; }
+    .funnel-stage { flex: none; width: 33.33%; font-size: 10px; padding: 10px 4px; }
+    .funnel-stage .fs-icon { font-size: 16px; }
+
+    /* Pricing tiers — stack on mobile */
+    .pricing-tier { padding: 16px 14px; }
+    .pricing-price { font-size: 24px; }
+
+    /* Cost service cards — tighter */
+    .cost-service-card .csvc-zar { font-size: 22px; }
+
+    /* Tables — horizontal scroll wrapper */
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+
+    /* Roadmap items */
+    .roadmap-header { font-size: 11.5px; padding: 10px 12px; }
+    .roadmap-item.open .roadmap-body { padding: 10px 12px; font-size: 11px; }
+
+    /* Bottleneck items */
+    .bottleneck-item { padding: 8px 10px; font-size: 11px; }
+
+    /* Middleware chain */
+    .mw-name { font-size: 12px; }
+    .mw-desc { font-size: 11px; }
+
+    /* Flow nodes — smaller on mobile */
+    .flow-node { padding: 6px 10px; font-size: 11px; }
+
+    /* Phase cards */
+    .phase-card-body { padding: 10px 12px; }
+    .phase-work-item { font-size: 11px; }
+
+    /* d-code blocks (monospace) — always scroll */
+    .d-code { font-size: 11px; }
+
+    /* Emyth cards */
+    .emyth-title { font-size: 14px; }
+    .emyth-body { font-size: 11px; }
+
+    /* Info cards — smaller text */
+    .info-card { padding: 10px; }
+    .info-card-title { font-size: 12px; }
+    .info-card-desc { font-size: 11px; }
+  }
+
+  /* Extra small — 375px phones */
+  @media (max-width: 420px) {
+    .tab-btn { padding: 10px 8px; font-size: 10.5px; }
+    .tab-icon { font-size: 13px; }
+    .stats-bar { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .stat-num { font-size: 16px; }
+    .stat-label { font-size: 9px; }
+    .tab-content { padding: 12px 10px; }
+    .ext-row { grid-template-columns: 1fr 1fr; }
+    .funnel-stage { width: 50%; }
+    .kpi-target { display: none; }
+  }
 </style>
 </head>
 <body>
